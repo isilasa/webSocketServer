@@ -34,5 +34,5 @@ while True:
             print("данные else", data.decode("utf-8"))
 
     if str(data) == "Stop":
-        print("Connection Close")
+        print("Connection close")
         break
