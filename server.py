@@ -9,15 +9,16 @@ async def hello(websocket, path):
     try:
         data = json.loads(jsonData)
         print("Client name " + data["name"])
-        print("Number from Client: " + str(data["port"]))
-        data["port"] = data["port"] * 2
+        print("Number from Client: " + str(data["age"]))
+        data["age"] = data["age"] * 2
         print(data)
     except KeyError:
         data["name"] = data["name"]
-        data["port"] = 0
+        data["age"] = 0
         print(data)
 
-    greeting = ("Hello " + data["name"])
+    greeting = json.dumps(data)
+
     await websocket.send(greeting)
     print(greeting)
 
